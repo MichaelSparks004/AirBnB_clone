@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """Defines the FileStorage class."""
+import os
+import uuid
 import json
 from models.user import User
 from models.city import City
+from datetime import datetime
 from models.state import State
 from models.place import Place
 from models.review import Review
