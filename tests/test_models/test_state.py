@@ -1,16 +1,36 @@
 #!/usr/bin/python3
 """ testing State """
 import unittest
-import pep8
-from models.state import State
+from datetime import datetime
+from models import *
 
-class State_testing(unittest.TestCase):
-    """ check BaseModel """
 
-    def testpep8(self):
-        """ testing codestyle """
-        pepstylecode = pep8.StyleGuide(quiet=True)
-        path_user = 'models/state.py'
-        result = pepstylecode.check_files([path_user])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+class Test_StateModel(unittest.TestCase):
+    """
+    Test the state model class
+    """
+
+    def test_minimal_creation(self):
+        """creating an object with no arguments"""
+        model = State()
+        self.assertTrue(hasattr(model, "name"))
+        self.assertTrue(hasattr(model, "id"))
+        self.assertTrue(hasattr(model, "created_at"))
+
+    def test_var_initialization(self):
+        """Check default type"""
+        model = State()
+        self.assertIsInstance(model.created_at, datetime)
+
+    def test_save(self):
+        """Try to save the object to storage"""
+        test_state = {'id': "009",
+                      'created_at': datetime(2017, 2, 12, 00, 31, 55, 331997),
+                      'name': "TEST STATE FOR STATE"}
+        state = State(test_state)
+        state.save()
+        storage.delete(state)
+
+
+if __name__ == "__main__":
+    unittest.main()
