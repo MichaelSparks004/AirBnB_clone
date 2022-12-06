@@ -5,11 +5,13 @@
     align-items: center;
     padding: 0 20px;
 }
+
 .places h1 {
     width: 100%;
     text-align: left;
     font-size: 30px;
 }
+
 .places article {
     width: 390px;
     padding: 20px;
@@ -17,6 +19,7 @@
     border: 1px solid #8A2BE2;
     border-radius: 4px;
 }
+
 .places h2 {
 	font-size: 30px;
 	text-align: center;
